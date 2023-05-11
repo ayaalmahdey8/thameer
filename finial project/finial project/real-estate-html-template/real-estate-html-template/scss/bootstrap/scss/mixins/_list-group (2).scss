@@ -1,0 +1,24 @@
+// قائمة  Groups
+
+// scss-docs-start قائمة -group-mixin
+@mixin قائمة -group-item-variant($state, $background, $color) {
+  .قائمة -group-item-#{$state} {
+    color: $color;
+    background-color: $background;
+
+    &.قائمة -group-item-action {
+      &:hover,
+      &:focus {
+        color: $color;
+        background-color: shade-color($background, 10%);
+      }
+
+      &.active {
+        color: $white;
+        background-color: $color;
+        border-color: $color;
+      }
+    }
+  }
+}
+// scss-docs-end قائمة -group-mixin

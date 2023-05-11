@@ -1,0 +1,7 @@
+// قائمة s
+
+// Unstyled keeps قائمة  items block level, just removes default browser padding and قائمة -style
+@mixin قائمة -unstyled {
+  padding-left: 0;
+  قائمة -style: none;
+}

@@ -1,0 +1,594 @@
+// stylelint-disable indentation
+
+// Utilities
+
+$utilities: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-merge(
+  (
+    // scss-docs-start utils-vertical-align
+    "align": (
+      العقارات : vertical-align,
+      class: align,
+      values: baseline top middle bottom text-bottom text-top
+    ),
+    // scss-docs-end utils-vertical-align
+    // scss-docs-start utils-float
+    "float": (
+      responsive: true,
+      العقارات : float,
+      values: (
+        start: left,
+        end: right,
+        none: none,
+      )
+    ),
+    // scss-docs-end utils-float
+    // scss-docs-start utils-overflow
+    "overflow": (
+      العقارات : overflow,
+      values: auto hidden visible scroll,
+    ),
+    // scss-docs-end utils-overflow
+    // scss-docs-start utils-display
+    "display": (
+      responsive: true,
+      print: true,
+      العقارات : display,
+      class: d,
+      values: inline inline-block block grid table table-row table-cell flex inline-flex none
+    ),
+    // scss-docs-end utils-display
+    // scss-docs-start utils-shadow
+    "shadow": (
+      العقارات : box-shadow,
+      class: shadow,
+      values: (
+        null: $box-shadow,
+        sm: $box-shadow-sm,
+        lg: $box-shadow-lg,
+        none: none,
+      )
+    ),
+    // scss-docs-end utils-shadow
+    // scss-docs-start utils-position
+    "position": (
+      العقارات : position,
+      values: static relative absolute fixed sticky
+    ),
+    "top": (
+      العقارات : top,
+      values: $position-values
+    ),
+    "bottom": (
+      العقارات : bottom,
+      values: $position-values
+    ),
+    "start": (
+      العقارات : left,
+      class: start,
+      values: $position-values
+    ),
+    "end": (
+      العقارات : right,
+      class: end,
+      values: $position-values
+    ),
+    "translate-middle": (
+      العقارات : transform,
+      class: translate-middle,
+      values: (
+        null: translate(-50%, -50%),
+        x: translateX(-50%),
+        y: translateY(-50%),
+      )
+    ),
+    // scss-docs-end utils-position
+    // scss-docs-start utils-borders
+    "border": (
+      العقارات : border,
+      values: (
+        null: $border-width solid $border-color,
+        0: 0,
+      )
+    ),
+    "border-top": (
+      العقارات : border-top,
+      values: (
+        null: $border-width solid $border-color,
+        0: 0,
+      )
+    ),
+    "border-end": (
+      العقارات : border-right,
+      class: border-end,
+      values: (
+        null: $border-width solid $border-color,
+        0: 0,
+      )
+    ),
+    "border-bottom": (
+      العقارات : border-bottom,
+      values: (
+        null: $border-width solid $border-color,
+        0: 0,
+      )
+    ),
+    "border-start": (
+      العقارات : border-left,
+      class: border-start,
+      values: (
+        null: $border-width solid $border-color,
+        0: 0,
+      )
+    ),
+    "border-color": (
+      العقارات : border-color,
+      class: border,
+      values: map-merge($theme-colors, ("white": $white))
+    ),
+    "border-width": (
+      العقارات : border-width,
+      class: border,
+      values: $border-widths
+    ),
+    // scss-docs-end utils-borders
+    // Sizing utilities
+    // scss-docs-start utils-sizing
+    "width": (
+      العقارات : width,
+      class: w,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+    "max-width": (
+      العقارات : max-width,
+      class: mw,
+      values: (100: 100%)
+    ),
+    "viewport-width": (
+      العقارات : width,
+      class: vw,
+      values: (100: 100vw)
+    ),
+    "min-viewport-width": (
+      العقارات : min-width,
+      class: min-vw,
+      values: (100: 100vw)
+    ),
+    "height": (
+      العقارات : height,
+      class: h,
+      values: (
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%,
+        auto: auto
+      )
+    ),
+    "max-height": (
+      العقارات : max-height,
+      class: mh,
+      values: (100: 100%)
+    ),
+    "viewport-height": (
+      العقارات : height,
+      class: vh,
+      values: (100: 100vh)
+    ),
+    "min-viewport-height": (
+      العقارات : min-height,
+      class: min-vh,
+      values: (100: 100vh)
+    ),
+    // scss-docs-end utils-sizing
+    // Flex utilities
+    // scss-docs-start utils-flex
+    "flex": (
+      responsive: true,
+      العقارات : flex,
+      values: (fill: 1 1 auto)
+    ),
+    "flex-direction": (
+      responsive: true,
+      العقارات : flex-direction,
+      class: flex,
+      values: row column row-reverse column-reverse
+    ),
+    "flex-grow": (
+      responsive: true,
+      العقارات : flex-grow,
+      class: flex,
+      values: (
+        grow-0: 0,
+        grow-1: 1,
+      )
+    ),
+    "flex-shrink": (
+      responsive: true,
+      العقارات : flex-shrink,
+      class: flex,
+      values: (
+        shrink-0: 0,
+        shrink-1: 1,
+      )
+    ),
+    "flex-wrap": (
+      responsive: true,
+      العقارات : flex-wrap,
+      class: flex,
+      values: wrap nowrap wrap-reverse
+    ),
+    "gap": (
+      responsive: true,
+      العقارات : gap,
+      class: gap,
+      values: $spacers
+    ),
+    "justify-content": (
+      responsive: true,
+      العقارات : justify-content,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        between: space-between,
+        around: space-around,
+        evenly: space-evenly,
+      )
+    ),
+    "align-items": (
+      responsive: true,
+      العقارات : align-items,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        baseline: baseline,
+        stretch: stretch,
+      )
+    ),
+    "align-content": (
+      responsive: true,
+      العقارات : align-content,
+      values: (
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        between: space-between,
+        around: space-around,
+        stretch: stretch,
+      )
+    ),
+    "align-self": (
+      responsive: true,
+      العقارات : align-self,
+      values: (
+        auto: auto,
+        start: flex-start,
+        end: flex-end,
+        center: center,
+        baseline: baseline,
+        stretch: stretch,
+      )
+    ),
+    "order": (
+      responsive: true,
+      العقارات : order,
+      values: (
+        first: -1,
+        0: 0,
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        last: 6,
+      ),
+    ),
+    // scss-docs-end utils-flex
+    // Margin utilities
+    // scss-docs-start utils-spacing
+    "margin": (
+      responsive: true,
+      العقارات : margin,
+      class: m,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-x": (
+      responsive: true,
+      العقارات : margin-right margin-left,
+      class: mx,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-y": (
+      responsive: true,
+      العقارات : margin-top margin-bottom,
+      class: my,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-top": (
+      responsive: true,
+      العقارات : margin-top,
+      class: mt,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-end": (
+      responsive: true,
+      العقارات : margin-right,
+      class: me,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-bottom": (
+      responsive: true,
+      العقارات : margin-bottom,
+      class: mb,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    "margin-start": (
+      responsive: true,
+      العقارات : margin-left,
+      class: ms,
+      values: map-merge($spacers, (auto: auto))
+    ),
+    // Negative margin utilities
+    "negative-margin": (
+      responsive: true,
+      العقارات : margin,
+      class: m,
+      values: $negative-spacers
+    ),
+    "negative-margin-x": (
+      responsive: true,
+      العقارات : margin-right margin-left,
+      class: mx,
+      values: $negative-spacers
+    ),
+    "negative-margin-y": (
+      responsive: true,
+      العقارات : margin-top margin-bottom,
+      class: my,
+      values: $negative-spacers
+    ),
+    "negative-margin-top": (
+      responsive: true,
+      العقارات : margin-top,
+      class: mt,
+      values: $negative-spacers
+    ),
+    "negative-margin-end": (
+      responsive: true,
+      العقارات : margin-right,
+      class: me,
+      values: $negative-spacers
+    ),
+    "negative-margin-bottom": (
+      responsive: true,
+      العقارات : margin-bottom,
+      class: mb,
+      values: $negative-spacers
+    ),
+    "negative-margin-start": (
+      responsive: true,
+      العقارات : margin-left,
+      class: ms,
+      values: $negative-spacers
+    ),
+    // Padding utilities
+    "padding": (
+      responsive: true,
+      العقارات : padding,
+      class: p,
+      values: $spacers
+    ),
+    "padding-x": (
+      responsive: true,
+      العقارات : padding-right padding-left,
+      class: px,
+      values: $spacers
+    ),
+    "padding-y": (
+      responsive: true,
+      العقارات : padding-top padding-bottom,
+      class: py,
+      values: $spacers
+    ),
+    "padding-top": (
+      responsive: true,
+      العقارات : padding-top,
+      class: pt,
+      values: $spacers
+    ),
+    "padding-end": (
+      responsive: true,
+      العقارات : padding-right,
+      class: pe,
+      values: $spacers
+    ),
+    "padding-bottom": (
+      responsive: true,
+      العقارات : padding-bottom,
+      class: pb,
+      values: $spacers
+    ),
+    "padding-start": (
+      responsive: true,
+      العقارات : padding-left,
+      class: ps,
+      values: $spacers
+    ),
+    // scss-docs-end utils-spacing
+    // Text
+    // scss-docs-start utils-text
+    "font-family": (
+      العقارات : font-family,
+      class: font,
+      values: (monospace: var(--#{$variable-prefix}font-monospace))
+    ),
+    "font-size": (
+      rfs: true,
+      العقارات : font-size,
+      class: fs,
+      values: $font-sizes
+    ),
+    "font-style": (
+      العقارات : font-style,
+      class: fst,
+      values: italic normal
+    ),
+    "font-weight": (
+      العقارات : font-weight,
+      class: fw,
+      values: (
+        light: $font-weight-light,
+        lighter: $font-weight-lighter,
+        normal: $font-weight-normal,
+        bold: $font-weight-bold,
+        bolder: $font-weight-bolder
+      )
+    ),
+    "line-height": (
+      العقارات : line-height,
+      class: lh,
+      values: (
+        1: 1,
+        sm: $line-height-sm,
+        base: $line-height-base,
+        lg: $line-height-lg,
+      )
+    ),
+    "text-align": (
+      responsive: true,
+      العقارات : text-align,
+      class: text,
+      values: (
+        start: left,
+        end: right,
+        center: center,
+      )
+    ),
+    "text-decoration": (
+      العقارات : text-decoration,
+      values: none underline line-through
+    ),
+    "text-transform": (
+      العقارات : text-transform,
+      class: text,
+      values: lowercase uppercase capitalize
+    ),
+    "white-space": (
+      العقارات : white-space,
+      class: text,
+      values: (
+        wrap: normal,
+        nowrap: nowrap,
+      )
+    ),
+    "word-wrap": (
+      العقارات : word-wrap word-break,
+      class: text,
+      values: (break: break-word),
+      rtl: false
+    ),
+    // scss-docs-end utils-text
+    // scss-docs-start utils-color
+    "color": (
+      العقارات : color,
+      class: text,
+      values: map-merge(
+        $theme-colors,
+        (
+          "white": $white,
+          "body": $body-color,
+          "muted": $text-muted,
+          "black-50": rgba($black, .5),
+          "white-50": rgba($white, .5),
+          "reset": inherit,
+        )
+      )
+    ),
+    // scss-docs-end utils-color
+    // scss-docs-start utils-bg-color
+    "background-color": (
+      العقارات : background-color,
+      class: bg,
+      values: map-merge(
+        $theme-colors,
+        (
+          "body": $body-bg,
+          "white": $white,
+          "transparent": transparent
+        )
+      )
+    ),
+    // scss-docs-end utils-bg-color
+    "gradient": (
+      العقارات : background-image,
+      class: bg,
+      values: (gradient: var(--#{$variable-prefix}gradient))
+    ),
+    // scss-docs-start utils-interaction
+    "user-select": (
+      العقارات : user-select,
+      values: all auto none
+    ),
+    "pointer-events": (
+      العقارات : pointer-events,
+      class: pe,
+      values: none auto,
+    ),
+    // scss-docs-end utils-interaction
+    // scss-docs-start utils-border-radius
+    "rounded": (
+      العقارات : border-radius,
+      class: rounded,
+      values: (
+        null: $border-radius,
+        0: 0,
+        1: $border-radius-sm,
+        2: $border-radius,
+        3: $border-radius-lg,
+        circle: 50%,
+        pill: $border-radius-pill
+      )
+    ),
+    "rounded-top": (
+      العقارات : border-top-left-radius border-top-right-radius,
+      class: rounded-top,
+      values: (null: $border-radius)
+    ),
+    "rounded-end": (
+      العقارات : border-top-right-radius border-bottom-right-radius,
+      class: rounded-end,
+      values: (null: $border-radius)
+    ),
+    "rounded-bottom": (
+      العقارات : border-bottom-right-radius border-bottom-left-radius,
+      class: rounded-bottom,
+      values: (null: $border-radius)
+    ),
+    "rounded-start": (
+      العقارات : border-bottom-left-radius border-top-left-radius,
+      class: rounded-start,
+      values: (null: $border-radius)
+    ),
+    // scss-docs-end utils-border-radius
+    // scss-docs-start utils-visibility
+    "visibility": (
+      العقارات : visibility,
+      class: null,
+      values: (
+        visible: visible,
+        invisible: hidden,
+      )
+    )
+    // scss-docs-end utils-visibility
+  ),
+  $utilities
+);
